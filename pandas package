@@ -1,0 +1,25 @@
+import pandas as pd
+import numpy as np 
+students_info ={
+    "name":['ali','asad','sara'],
+    "age":[12,14,17],
+    "degree":['aval','dovom','sevom']
+    
+}
+for key , value in students_info.items():
+    print(key , value)
+students_df=pd.DataFrame(students_info)
+print(students_df)
+data1=[1,2,3,4]
+print(pd.Series(data1,index=['a','b','c',"d"]))
+data2=np.array([1,2,3,4,5,6,7,8,9])
+print(pd.Series(data2,index=range(10,19  )))
+st=np.random.randn(3)
+st2=pd.Series(st,index=["one",'two','three'])
+print(st2)
+mat = np.ones((5, 6))
+df = pd.DataFrame(mat, columns=["one", "two", "three", "four", "five", "six"],index=list("abcde"))
+print(df)
+print('thanks')
+print("mohammad-hossein")
+print("cheraghi")
