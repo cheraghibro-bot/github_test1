@@ -1,0 +1,85 @@
+# این پروژه به دو مخزن سی اس وی ممختلف دسترسی داشته   
+# اینجا فقط گرداوری شده باید بخش ها مختلف کد خارج بشه و کامنت ها پاک بشه
+import matplotlib.pyplot as plt
+import numpy as np 
+import pandas as pd
+
+#x=np.array([-1,-2,-3,-4, 1,2,3,4,5,6,7,8,9])
+x=np.linspace(-10,10,100)
+y=x**2
+fx=x**3
+
+plt.style.use("ggplot")
+plt.plot(x,fx,color="orange",label="x**3",linewidth=5,marker="*",markersize=10)
+plt.plot(x,y,color="black",label="x**2",linewidth=3,linestyle="--")
+
+
+plt.style.use("ggplot")
+plt.title("my fig")
+plt.xlabel("x ha ")
+plt.ylabel("y ha ")
+plt.legend()
+
+
+#plt.show()
+#--------------------------------------------------------------------------------------------------------#
+age = [22, 25, 28, 31, 34, 37, 40, 43, 47, 52]
+
+pyd   = [28000000, 35000000, 42000000, 50000000, 58000000,
+         65000000, 72000000, 78000000, 85000000, 90000000]
+
+javad = [26000000, 32000000, 40000000, 47000000, 55000000,
+         61000000, 68000000, 74000000, 80000000, 86000000]
+plt.plot(age,pyd, color="orange", marker="o", label="Python")
+plt.plot(age,javad, color="black", marker="s", label="Java")
+plt.title("incom comparing")
+plt.xlabel("age")
+plt.ylabel("income (toman)")
+plt.legend()
+#plt.show()
+#----------------------------------------------------------------------------------------------
+mx=[1,2,3,4,5,6,7,8,9]
+ny=[11,12,13,14,15,16,17,18,19]
+plt.bar(mx,ny)
+#plt.show()
+#------------------------------------------------------------------------------------------------------
+dataset=pd.read_csv("test.csv")
+print(dataset)
+students=dataset["students"]
+costs=dataset["costs"]
+plt.bar(students,costs)
+#plt.show()
+#--------------------------------------------------------------
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
+
+import matplotlib.pyplot as plt
+import pandas as pd
+import arabic_reshaper
+from bidi.algorithm import get_display
+
+def fa(text):
+    return get_display(arabic_reshaper.reshape(str(text)))
+
+plt.rcParams["font.family"] = "Tahoma"
+
+# ۱. خواندن دیتا
+dataset = pd.read_csv("info.csv")
+
+# ۲. شمردن تعداد هر برند
+brand_counts = dataset["brand"].value_counts()   # .head(10) اگه خواستی فقط ۱۰ تا
+
+# ۳. آماده‌سازی برای نمودار
+names = [fa(b) for b in brand_counts.index]
+amount = list(brand_counts.values)
+
+# ۴. رسم
+plt.figure(figsize=(10, 6))
+plt.bar(names, amount)
+plt.title(fa("تعداد سفارش هر برند"))
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.show()
+print('thanks')
+print("mohammad-hossein")
+print("cheraghi")
